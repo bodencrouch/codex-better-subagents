@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-26",
+  "controller_model": "gpt-6-luna",
+  "controller_effort": "high",
+  "claude_cli": "2.1.310 (Claude Code)",
+  "control_samples": 5,
+  "guided_samples": 5,
+  "cross_model_guided_smoke_samples": 3,
+  "skill_sha256": "6d39942270ceae357aa149d697e58bb0fddb4dc4c20583aebd36f74bc9536bc4",
+  "score_focus": "Project-specific task-tier decisions, explicit effort, fresh context, CLI fallback. No runtime execution or quality/cost benchmark."
+}

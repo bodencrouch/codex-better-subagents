@@ -28,6 +28,10 @@ The levels in the table are starting points. The spawning agent picks the level 
 - Effort labels are not comparable across vendors. When a harness cannot set reasoning, pick the tier to compensate.
 - Always set reasoning explicitly. Some Codex configs default to max, and Codex may start native Sol or Astra subagents at xhigh.
 
+## Check harness compatibility
+
+The transport observations, timing samples, model IDs and standalone worker-profile loading below describe the author's tested October 2026 setup, including a cross-vendor proxy and customized harnesses. They are local observations, not universal behavior or controlled performance benchmarks. Inspect your tool schema, model catalog and CLI help before adapting the examples. Explicit user instructions and platform restrictions take precedence.
+
 ## Spawn natively first
 
 - Codex `spawn_agent`: pass `agent_type` set to `basic-worker`, `standard-worker`, `deep-worker` or `frontier-worker`, or pass `model` and `reasoning_effort`. Start workers with a fresh context (`fork_context: false`, or `fork_turns: "none"`) and a self-contained packet; a worker that inherits the whole conversation and can't read its own task will do the parent's task instead. Close finished agents with `close_agent` where it exists, because a finished agent keeps its slot until closed.
