@@ -1,0 +1,19 @@
+{
+  "name": "codex-better-subagents",
+  "version": "1.1.0",
+  "description": "Four worker agents (basic, standard, deep, frontier), each pinned to a model and reasoning level.",
+  "author": {
+    "name": "bodencrouch",
+    "url": "https://github.com/bodencrouch"
+  },
+  "homepage": "https://github.com/bodencrouch/codex-better-subagents",
+  "repository": "https://github.com/bodencrouch/codex-better-subagents",
+  "license": "Apache-2.0",
+  "keywords": ["subagents", "agents", "model-routing", "codex"],
+  "agents": [
+    "./agents/claude/basic-worker.md",
+    "./agents/claude/standard-worker.md",
+    "./agents/claude/deep-worker.md",
+    "./agents/claude/frontier-worker.md"
+  ]
+}
