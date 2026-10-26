@@ -20,6 +20,9 @@ jobs:
         run: shellcheck install.sh
       - name: Parse TOML files
         run: python3 -c 'import tomllib,glob; [tomllib.load(open(f,"rb")) for f in glob.glob("agents/codex/*.toml")+["codex/worker.config.toml"]]'
+      - name: Check plugin manifests
+        run: |
+          for f in .claude-plugin/*.json; do python3 -m json.tool "$f" > /dev/null; done
       - name: Check agent frontmatter
         run: |
           python3 - <<'PY'

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "codex-better-subagents",
+  "description": "Tiered subagent workers for Claude Code: pick the model and reasoning level by the job.",
+  "owner": {
+    "name": "bodencrouch",
+    "url": "https://github.com/bodencrouch"
+  },
+  "plugins": [
+    {
+      "name": "codex-better-subagents",
+      "source": "./",
+      "description": "Four worker agents (basic, standard, deep, frontier), each pinned to a model and reasoning level.",
+      "version": "1.1.0",
+      "license": "Apache-2.0",
+      "homepage": "https://github.com/bodencrouch/codex-better-subagents",
+      "keywords": ["subagents", "agents", "model-routing", "codex"]
+    }
+  ]
+}

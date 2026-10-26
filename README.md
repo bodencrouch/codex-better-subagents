@@ -12,9 +12,29 @@ It also documents a failure most people hit and few explain: Codex multi-agent v
 | [`agents/claude/`](agents/claude) | Claude Code subagents: `basic-worker`, `standard-worker`, `deep-worker`, `frontier-worker` |
 | [`agents/codex/`](agents/codex) | The same four workers as Codex agent roles |
 | [`codex/worker.config.toml`](codex/worker.config.toml) | A lean Codex profile for headless `codex exec -p worker` runs |
+| [`.claude-plugin/`](.claude-plugin) | Claude Code plugin and marketplace manifests |
 | [`install.sh`](install.sh) | Copies everything into place and keeps a timestamped backup of any file it replaces |
 
 ## Install
+
+### Claude Code plugin
+
+This repo is also a plugin marketplace. In Claude Code:
+
+```
+/plugin marketplace add bodencrouch/codex-better-subagents
+/plugin install codex-better-subagents@codex-better-subagents
+```
+
+On Claude Code 2.1.275 or later, one step works too:
+
+```
+/plugin install codex-better-subagents --marketplace bodencrouch/codex-better-subagents
+```
+
+The plugin adds the four Claude workers as `codex-better-subagents:basic-worker` and so on. It does not install `ROUTING.md` or the Codex files; use `install.sh` for those.
+
+### Everything, with install.sh
 
 ```bash
 git clone https://github.com/bodencrouch/codex-better-subagents.git

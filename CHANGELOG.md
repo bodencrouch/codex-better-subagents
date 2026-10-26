@@ -2,6 +2,13 @@
 
 All notable changes to this project are listed here. The project follows [Semantic Versioning](https://semver.org/).
 
+## [1.1.0] - 2026-10-26
+
+### Added
+
+- Claude Code plugin marketplace: `.claude-plugin/marketplace.json` and `plugin.json` ship the four Claude workers.
+- CI parses the plugin manifests as JSON.
+
 ## [1.0.1] - 2026-10-26
 
 ### Fixed
