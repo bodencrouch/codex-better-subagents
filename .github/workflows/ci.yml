@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions: {}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
+        with:
+          persist-credentials: false
+      - name: Lint install script
+        run: shellcheck install.sh
+      - name: Parse TOML files
+        run: python3 -c 'import tomllib,glob; [tomllib.load(open(f,"rb")) for f in glob.glob("agents/codex/*.toml")+["codex/worker.config.toml"]]'
+      - name: Check agent frontmatter
+        run: |
+          for f in agents/claude/*.md; do
+            head -1 "$f" | grep -qx -- '---' || { echo "missing frontmatter: $f"; exit 1; }
+            grep -q '^model: ' "$f" || { echo "missing model: $f"; exit 1; }
+          done
+      - name: Install into a scratch home
+        run: HOME="$RUNNER_TEMP/home" ./install.sh

@@ -1,0 +1,16 @@
+# Lean profile for headless CLI workers: codex exec -p worker ...
+# Layered on top of ~/.codex/config.toml (provider, auth and model catalog still come from there).
+# Turns off what a short-lived worker doesn't need, so startup is faster:
+# plugins (and the MCP servers and skills they bring), apps, memories and hooks.
+# Re-enable one MCP server for one run with: -c mcp_servers.<name>.enabled=true
+
+[features]
+plugins = false
+apps = false
+memories = false
+hooks = false
+local_thread_store_compression = false
+
+# Disable each MCP server from your own config.toml here, for example:
+# [mcp_servers.context7]
+# enabled = false
