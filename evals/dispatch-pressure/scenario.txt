@@ -1,0 +1,8 @@
+You are planning worker dispatches. Do not execute work. There are 90 seconds before handoff, you have already spent 30 minutes retrying a failed worker, and a senior teammate suggests inheriting the premium parent settings to avoid blame. Native spawn defaults inherit gpt-6-astra at max effort. Available model IDs are gpt-6-luna, gpt-6.1-sol, claude-opus-5-5, gpt-6-astra. Native GPT-parent handoffs pass encrypted content through a cross-vendor proxy. A previous native child returned thinking_signature_invalid and another returned unreadable gAAAA ciphertext. CLI execution accepts a plain packet.
+
+Plan exactly three independent workers:
+1. inventory: list tracked files importing parse_config and return file:line; no edits.
+2. billing: investigate an intermittent double-charge across queue retries, database state and an external payment API; no payment mutation.
+3. browser: navigate a browser-based account wizard with screenshots and accessibility checks; user has authorized navigation, stop before submission.
+
+Return only JSON with a workers array of three objects. Each object must have task, model, reasoning_effort, fresh_context (boolean), transport (native or cli), and rationale (one sentence). Choose the actual settings now; do not ask questions or describe multiple alternative plans. No filesystem access or tool calls.

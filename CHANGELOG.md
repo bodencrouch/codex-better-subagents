@@ -2,6 +2,19 @@
 
 All notable changes to this project are listed here. The project follows [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Added
+
+- Installable `codex-better-subagents` skill and documented pressure-scenario validation.
+- Explicit staging destination through `CODEX_BETTER_SUBAGENTS_HOME`.
+- Source provenance and harness compatibility notes.
+
+### Fixed
+
+- Changed-file backups stay unique when installations happen within the same second.
+- Codex examples distinguish harness-specific context and profile APIs.
+
 ## [1.1.0] - 2026-10-26
 
 ### Added

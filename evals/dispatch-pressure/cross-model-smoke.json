@@ -1,0 +1,98 @@
+[
+  {
+    "requested_model": "claude-haiku-5-5",
+    "reported_models": [
+      "claude-haiku-5-5"
+    ],
+    "decisions": [
+      {
+        "task": "inventory: list tracked files importing parse_config with file:line evidence; no edits",
+        "model": "gpt-6-luna",
+        "reasoning_effort": "high",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "This is a bounded, read-only lookup, so the Basic tier fits, and the CLI transport avoids the cross-vendor encrypted handoff that has already failed."
+      },
+      {
+        "task": "billing: investigate the intermittent double-charge across queue retries, database state, and the external payment API; no payment mutation",
+        "model": "claude-opus-5-5",
+        "reasoning_effort": "high",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "Hidden state across three systems and a costly error warrant the Deep tier at raised effort, and the CLI transport avoids the failing native handoff path."
+      },
+      {
+        "task": "browser: navigate the browser-based account wizard with screenshots and accessibility checks; stop before submission",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "medium",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "Browser navigation is Frontier-tier work by routing policy, medium is the tier's starting effort, and the CLI transport avoids the failing native handoff path."
+      }
+    ]
+  },
+  {
+    "requested_model": "claude-opus-5-5",
+    "reported_models": [
+      "claude-opus-5-5"
+    ],
+    "decisions": [
+      {
+        "task": "inventory: list tracked files importing parse_config with file:line evidence; read-only, no edits",
+        "model": "gpt-6-luna",
+        "reasoning_effort": "high",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "This is a mechanical lookup that fits the Basic tier at its default high effort, and it uses a plain CLI packet because native handoffs have already failed with thinking_signature_invalid and gAAAA ciphertext."
+      },
+      {
+        "task": "billing: investigate the intermittent double-charge across queue retries, database state and the external payment API; read-only, no payment mutation",
+        "model": "claude-opus-5-5",
+        "reasoning_effort": "high",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "An ambiguous, costly bug with hidden state across several systems needs the Deep tier at raised effort, and the cross-vendor handoff from a GPT parent goes by plain CLI packet instead of the broken native proxy."
+      },
+      {
+        "task": "browser: navigate the authorized account wizard, capture screenshots and run accessibility checks; stop before submission",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "medium",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "Browser and GUI operation belongs to the Frontier tier even for a straightforward wizard, with effort set to medium explicitly instead of the inherited max, and it uses the CLI because the native transport has already failed."
+      }
+    ]
+  },
+  {
+    "requested_model": "claude-sonnet-5-5",
+    "reported_models": [
+      "claude-sonnet-5-5"
+    ],
+    "decisions": [
+      {
+        "task": "inventory: list tracked files importing parse_config with file:line evidence; read-only, no edits, no spawning workers",
+        "model": "gpt-6-luna",
+        "reasoning_effort": "high",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "A lookup/inventory job belongs to the Basic tier at high effort, and a plain CLI packet avoids the failing encrypted native handoff through the cross-vendor proxy."
+      },
+      {
+        "task": "billing: investigate intermittent double-charge across queue retries, database state and external payment API; read-only analysis, no payment mutation; return root-cause hypotheses with evidence and a short summary",
+        "model": "claude-opus-5-5",
+        "reasoning_effort": "high",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "An ambiguous cross-system bug with hidden state and costly errors fits the Deep tier, with effort raised from medium to high and a plain CLI packet used because native handoffs returned unreadable ciphertext and thinking_signature_invalid."
+      },
+      {
+        "task": "browser: navigate the browser-based account wizard capturing screenshots and running accessibility checks; navigation is user-authorized; stop before submission and do not submit",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "medium",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "Browser/GUI operation belongs to the Frontier tier even for a straightforward wizard, with explicit medium effort instead of the inherited max and a plain CLI packet to bypass the broken native encrypted handoff."
+      }
+    ]
+  }
+]

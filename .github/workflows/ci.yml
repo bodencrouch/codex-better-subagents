@@ -39,5 +39,33 @@ jobs:
                   print(f"bad frontmatter: {f}"); bad = 1
           sys.exit(bad)
           PY
-      - name: Install into a scratch home
-        run: HOME="$RUNNER_TEMP/home" ./install.sh
+      - name: Validate installable skill and evaluation records
+        run: |
+          python3 - <<'PYCODE'
+          import hashlib, json, pathlib, re, yaml
+          skill = pathlib.Path("skills/codex-better-subagents/SKILL.md")
+          text = skill.read_text()
+          meta = yaml.safe_load(text.split("---", 2)[1])
+          assert meta["name"] == skill.parent.name
+          assert re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", meta["name"])
+          assert meta["description"].startswith("Use when")
+          assert len(meta["description"]) <= 1024
+          assert len(text.split()) < 500
+          data = pathlib.Path("evals/dispatch-pressure")
+          evidence = json.loads((data / "metadata.json").read_text())
+          assert evidence["skill_sha256"] == hashlib.sha256(skill.read_bytes()).hexdigest()
+          assert len(json.loads((data / "baseline.json").read_text())) == 5
+          guided = json.loads((data / "guided.json").read_text())
+          assert len(guided) == 5
+          for sample in guided:
+              workers = sample["decisions"]
+              assert [w["model"] for w in workers] == ["gpt-6-luna", "claude-opus-5-5", "gpt-6-astra"]
+              assert all(w["fresh_context"] and w["transport"] == "cli" for w in workers)
+              assert all(w["reasoning_effort"] in {"low", "medium", "high"} for w in workers)
+          PYCODE
+      - name: Install into a staging directory
+        run: |
+          stage_root="$RUNNER_TEMP/codex-better-subagents"
+          CODEX_BETTER_SUBAGENTS_HOME="$stage_root" ./install.sh
+          cmp skills/codex-better-subagents/SKILL.md "$stage_root/.agents/skills/codex-better-subagents/SKILL.md"
+          CODEX_BETTER_SUBAGENTS_HOME="$stage_root" ./install.sh

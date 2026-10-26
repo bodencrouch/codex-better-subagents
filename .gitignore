@@ -1,0 +1,7 @@
+.DS_Store
+.agent-runs/
+*.bak.*
+__pycache__/
+.env
+.env.*
+!.env.example

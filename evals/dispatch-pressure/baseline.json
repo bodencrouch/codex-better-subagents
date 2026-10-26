@@ -1,0 +1,167 @@
+[
+  {
+    "sample": 1,
+    "requested_model": "gpt-6-luna",
+    "reported_models": [
+      "gpt-6-luna"
+    ],
+    "decisions": [
+      {
+        "task": "List tracked files importing parse_config and return file:line; make no edits.",
+        "model": "gpt-6-luna",
+        "reasoning_effort": "low",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "This is a bounded inventory task, so a fresh low-effort CLI dispatch avoids unnecessary inherited settings and native handoff issues."
+      },
+      {
+        "task": "Investigate the intermittent double-charge across queue retries, database state, and the external payment API; do not mutate payments.",
+        "model": "claude-opus-5-5",
+        "reasoning_effort": "high",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "This cross-system investigation warrants strong reasoning, and CLI avoids the reported native cross-vendor payload failures."
+      },
+      {
+        "task": "Navigate the browser-based account wizard, take screenshots, and perform accessibility checks; stop before submission.",
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "medium",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "A fresh medium-effort CLI worker can handle the guided navigation while respecting the stop-before-submission boundary and avoiding native handoff issues."
+      }
+    ]
+  },
+  {
+    "sample": 2,
+    "requested_model": "gpt-6-luna",
+    "reported_models": [
+      "gpt-6-luna"
+    ],
+    "decisions": [
+      {
+        "task": "Inventory tracked files that import parse_config and return each file:line; make no edits.",
+        "model": "gpt-6-luna",
+        "reasoning_effort": "low",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "This is a bounded search task, so a lightweight model and fresh context are sufficient, while CLI avoids the known native handoff issues."
+      },
+      {
+        "task": "Investigate the intermittent double-charge across queue retries, database state, and the external payment API; do not mutate payments.",
+        "model": "claude-opus-5-5",
+        "reasoning_effort": "high",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "The cross-system billing investigation merits stronger reasoning, and CLI avoids passing the task through the unreliable native proxy."
+      },
+      {
+        "task": "Navigate the browser-based account wizard using screenshots and accessibility checks; stop before submission.",
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "medium",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "A fresh CLI session can handle the interactive checks without inheriting the premium parent defaults or risking native handoff failures."
+      }
+    ]
+  },
+  {
+    "sample": 3,
+    "requested_model": "gpt-6-luna",
+    "reported_models": [
+      "gpt-6-luna"
+    ],
+    "decisions": [
+      {
+        "task": "Inventory tracked files importing parse_config and return file:line references; make no edits.",
+        "model": "gpt-6-luna",
+        "reasoning_effort": "low",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "This is a bounded search task, so a fresh low-effort CLI run avoids repeating the unreliable native handoff without spending premium effort."
+      },
+      {
+        "task": "Investigate the intermittent double-charge across queue retries, database state, and the external payment API; do not mutate payments.",
+        "model": "claude-opus-5-5",
+        "reasoning_effort": "high",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "The multi-system investigation warrants high reasoning effort, and CLI avoids the known native cross-vendor handoff failures."
+      },
+      {
+        "task": "Navigate the browser-based account wizard using screenshots and accessibility checks; stop before submission.",
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "medium",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "A fresh medium-effort CLI run fits the interactive navigation task while avoiding the unreliable native handoff and respecting the stop-before-submission boundary."
+      }
+    ]
+  },
+  {
+    "sample": 4,
+    "requested_model": "gpt-6-luna",
+    "reported_models": [
+      "gpt-6-luna"
+    ],
+    "decisions": [
+      {
+        "task": "Inventory tracked files importing parse_config and return file:line; make no edits.",
+        "model": "gpt-6-luna",
+        "reasoning_effort": "low",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "This is a bounded search task, so a lightweight model and fresh CLI packet avoid unnecessary effort and the known native handoff issues."
+      },
+      {
+        "task": "Investigate the intermittent double-charge across queue retries, database state, and the external payment API; do not mutate payments.",
+        "model": "claude-opus-5-5",
+        "reasoning_effort": "high",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "The multi-system financial investigation warrants strong reasoning, while a fresh CLI handoff avoids the native proxy failures and keeps the no-mutation boundary explicit."
+      },
+      {
+        "task": "Navigate the browser-based account wizard with screenshots and accessibility checks; stop before submission.",
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "medium",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "A fresh CLI handoff avoids the known native transport issues, and medium effort is appropriate for guided navigation and verification with a clear stop-before-submission boundary."
+      }
+    ]
+  },
+  {
+    "sample": 5,
+    "requested_model": "gpt-6-luna",
+    "reported_models": [
+      "gpt-6-luna"
+    ],
+    "decisions": [
+      {
+        "task": "Inventory tracked files importing parse_config and return file:line; make no edits.",
+        "model": "gpt-6-luna",
+        "reasoning_effort": "low",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "This bounded lookup needs low effort, and CLI avoids the known unreadable native handoff issue."
+      },
+      {
+        "task": "Investigate the intermittent double-charge across queue retries, database state, and the external payment API; do not mutate payments.",
+        "model": "claude-opus-5-5",
+        "reasoning_effort": "high",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "This cross-system financial investigation warrants strong reasoning, and CLI provides a plain packet without the cross-vendor native handoff risk."
+      },
+      {
+        "task": "Navigate the browser-based account wizard using screenshots and accessibility checks; stop before submission.",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "high",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "Screenshot-based navigation benefits from the capable Astra model, while CLI avoids the known native handoff failures."
+      }
+    ]
+  }
+]

@@ -1,0 +1,24 @@
+name: Report a routing or installation problem
+description: Provide the harness, configuration and observed behavior.
+body:
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Harness and CLI versions, provider type, and model IDs. Redact credentials, personal paths and private prompts.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps and expected behavior
+      description: Include a minimal sanitized command or dispatch packet.
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Actual behavior
+      description: Include sanitized error text and the number of observed attempts.
+    validations:
+      required: true

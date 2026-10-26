@@ -24,3 +24,9 @@ Thanks for helping improve this guide.
 ## Reporting problems
 
 Open an issue with the harness name and version, the model, the exact spawn call or command, and the error text.
+
+## Changing the skill
+
+Follow the documented RED/GREEN process in [skill validation](docs/skill-validation.md): run fresh no-guidance controls before changing the guidance, read the choices and rationales, then rerun with the skill. Keep the exact scenario, rubric and sanitized decisions. Updating an evidence hash without rerunning the evaluation does not validate new wording.
+
+CI validates the skill frontmatter, word budget, frozen skill hash and recorded decisions; it does not call a paid model or prove runtime worker behavior. Use a temporary `CODEX_BETTER_SUBAGENTS_HOME` to rehearse installation without touching your own configuration.

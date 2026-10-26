@@ -1,0 +1,167 @@
+[
+  {
+    "sample": 1,
+    "requested_model": "gpt-6-luna",
+    "reported_models": [
+      "gpt-6-luna"
+    ],
+    "decisions": [
+      {
+        "task": "Inventory tracked files importing parse_config and return each match as file:line. Read-only; make no edits.",
+        "model": "gpt-6-luna",
+        "reasoning_effort": "high",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "This is a bounded inventory task suited to the Basic tier, and CLI avoids the failed encrypted native handoff."
+      },
+      {
+        "task": "Investigate the intermittent double-charge across queue retries, database state, and the external payment API. Do not mutate payments; report evidence and unresolved questions.",
+        "model": "claude-opus-5-5",
+        "reasoning_effort": "high",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "Tracing an ambiguous, costly cross-system failure warrants Deep-tier reasoning, while CLI avoids the failed encrypted native handoff."
+      },
+      {
+        "task": "Navigate the browser-based account wizard using screenshots and accessibility checks. User authorizes navigation; stop before submission.",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "medium",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "Browser operation requires the Frontier tier, and CLI avoids the failed encrypted native handoff."
+      }
+    ]
+  },
+  {
+    "sample": 2,
+    "requested_model": "gpt-6-luna",
+    "reported_models": [
+      "gpt-6-luna"
+    ],
+    "decisions": [
+      {
+        "task": "Inventory tracked files that import parse_config and return each location as file:line. Make no edits.",
+        "model": "gpt-6-luna",
+        "reasoning_effort": "high",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "This is a bounded inventory task suited to the Basic tier, and CLI avoids the failed encrypted native handoffs."
+      },
+      {
+        "task": "Investigate the intermittent double-charge across queue retries, database state, and the external payment API. Do not mutate payments.",
+        "model": "claude-opus-5-5",
+        "reasoning_effort": "medium",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "Tracing a costly issue across multiple systems warrants the Deep tier, and CLI provides a plain packet after native handoff failures."
+      },
+      {
+        "task": "Navigate the browser-based account wizard, capture screenshots, and check accessibility. User authorizes navigation; stop before submission.",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "medium",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "Browser operation requires the Frontier tier, and CLI avoids the failed encrypted native handoffs while using explicit medium effort."
+      }
+    ]
+  },
+  {
+    "sample": 3,
+    "requested_model": "gpt-6-luna",
+    "reported_models": [
+      "gpt-6-luna"
+    ],
+    "decisions": [
+      {
+        "task": "Inventory tracked files importing parse_config and return verified file:line locations; make no edits.",
+        "model": "gpt-6-luna",
+        "reasoning_effort": "high",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "This is a bounded lookup suited to Basic, and a plain CLI packet avoids the known unreliable native handoff."
+      },
+      {
+        "task": "Investigate the intermittent double-charge across queue retries, database state, and the external payment API; do not mutate payment state.",
+        "model": "claude-opus-5-5",
+        "reasoning_effort": "medium",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "Cross-system ambiguity and costly errors warrant Deep, while CLI avoids repeating the failed encrypted native handoff."
+      },
+      {
+        "task": "Navigate the browser-based account wizard, capture screenshots, and check accessibility; stop before submission.",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "medium",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "Browser operation requires Frontier, and CLI provides a plain packet after the native handoff failures."
+      }
+    ]
+  },
+  {
+    "sample": 4,
+    "requested_model": "gpt-6-luna",
+    "reported_models": [
+      "gpt-6-luna"
+    ],
+    "decisions": [
+      {
+        "task": "List tracked files that import parse_config and provide file:line evidence; make no edits.",
+        "model": "gpt-6-luna",
+        "reasoning_effort": "high",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "This is a bounded inventory task suited to Basic, and CLI avoids the failed encrypted native handoff."
+      },
+      {
+        "task": "Investigate the intermittent double-charge across queue retries, database state, and the external payment API; do not mutate payments.",
+        "model": "claude-opus-5-5",
+        "reasoning_effort": "high",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "This cross-system, high-cost failure warrants Deep reasoning at elevated effort, and CLI avoids the failed encrypted native handoff."
+      },
+      {
+        "task": "Navigate the browser-based account wizard, capture screenshots, and perform accessibility checks; stop before submission.",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "medium",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "Browser and GUI operation requires the Frontier tier, and CLI avoids the failed encrypted native handoff."
+      }
+    ]
+  },
+  {
+    "sample": 5,
+    "requested_model": "gpt-6-luna",
+    "reported_models": [
+      "gpt-6-luna"
+    ],
+    "decisions": [
+      {
+        "task": "Inventory tracked files importing parse_config; return file:line evidence. Make no edits.",
+        "model": "gpt-6-luna",
+        "reasoning_effort": "high",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "This is a bounded inventory task suited to Basic, and CLI avoids the known failed encrypted native handoffs."
+      },
+      {
+        "task": "Investigate the intermittent double-charge across queue retries, database state, and the external payment API; do not mutate payments.",
+        "model": "claude-opus-5-5",
+        "reasoning_effort": "medium",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "This ambiguous, cross-system investigation warrants Deep, while CLI avoids the known failed encrypted native handoffs."
+      },
+      {
+        "task": "Navigate the browser-based account wizard, capture screenshots, and check accessibility; stop before submission.",
+        "model": "gpt-6-astra",
+        "reasoning_effort": "medium",
+        "fresh_context": true,
+        "transport": "cli",
+        "rationale": "Browser operation requires Frontier, and CLI supports a plain packet while avoiding the known failed encrypted native handoffs."
+      }
+    ]
+  }
+]
