@@ -1,16 +1,17 @@
 #!/usr/bin/env bash
 # Install the routing guide and worker definitions into your home directory.
-# Existing files that differ are backed up with a .bak suffix before being replaced.
+# Existing files that differ are backed up with a timestamped .bak suffix before being replaced.
 set -euo pipefail
 
+stamp="$(date +%Y%m%d-%H%M%S)"
 src="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 install_file() {
   local from="$1" to="$2"
   mkdir -p "$(dirname "$to")"
   if [[ -e "$to" ]] && ! cmp -s "$from" "$to"; then
-    cp "$to" "$to.bak"
-    echo "backed up $to -> $to.bak"
+    cp "$to" "$to.bak.$stamp"
+    echo "backed up $to -> $to.bak.$stamp"
   fi
   cp "$from" "$to"
   echo "installed $to"

@@ -12,7 +12,7 @@ It also documents a failure most people hit and few explain: Codex multi-agent v
 | [`agents/claude/`](agents/claude) | Claude Code subagents: `basic-worker`, `standard-worker`, `deep-worker`, `frontier-worker` |
 | [`agents/codex/`](agents/codex) | The same four workers as Codex agent roles |
 | [`codex/worker.config.toml`](codex/worker.config.toml) | A lean Codex profile for headless `codex exec -p worker` runs |
-| [`install.sh`](install.sh) | Copies everything into place and backs up files it replaces |
+| [`install.sh`](install.sh) | Copies everything into place and keeps a timestamped backup of any file it replaces |
 
 ## Install
 
@@ -62,7 +62,7 @@ See [`ROUTING.md`](ROUTING.md) for the full rules, including parallel CLI worker
 
 The model IDs and prices were current in October 2026. If your provider offers different models, edit the tier table in `ROUTING.md` and the `model` lines in `agents/`. Keep the tier names, because the agent files and the guide refer to them.
 
-The `codex/worker.config.toml` profile turns off plugins, apps, memories and hooks. To keep workers fast, add an `enabled = false` block for each MCP server in your own `~/.codex/config.toml`.
+The `codex/worker.config.toml` profile turns off plugins, apps, memories and hooks. To keep workers fast, add an `enabled = false` block to `~/.codex/worker.config.toml` for each MCP server in your `~/.codex/config.toml`. That keeps the servers on in your normal sessions.
 
 ## Contributing
 

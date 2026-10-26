@@ -40,7 +40,7 @@ The levels in the table are starting points. The spawning agent picks the level 
 Use CLI workers when the native tool has no free slots, a spawn fails, a child can't read its task (the Codex v2 case above), the right model is not offered, or you need more parallel workers than the harness allows. Say so in your update. Write each packet to a file and pass it on stdin. A CLI worker reads the packet as plain text, so it works with either vendor.
 
 ```bash
-run=~/.cache/agent-runs/$(date +%Y%m%d-%H%M%S)-<slug>; mkdir -p "$run"
+run=~/.cache/agent-runs/$(date +%Y%m%d-%H%M%S)-review; mkdir -p "$run"
 # Claude worker: a short job takes about 30 s.
 ( timeout 45m claude -p --model claude-haiku-5-5 --effort high --permission-mode bypassPermissions \
     --no-session-persistence --output-format json < "$run/w1.task.md" > "$run/w1.json" 2> "$run/w1.err"
@@ -55,7 +55,7 @@ wait
 
 - Research-only Claude worker: replace the permission flag with `--permission-mode plan`, which lets it read and search but not edit or run write commands. Give it a full model ID; in plan mode `--model haiku` ran `gpt-6.1-sol` instead of the Haiku slot's model. In the JSON, `.result` is the reply and the keys of `.modelUsage` name the model that ran.
 - `-p worker` leaves the worker without MCP tools and plugin skills. If it needs one, add `-c mcp_servers.<name>.enabled=true`, or drop `-p worker`. Always feed it stdin (the packet, or `< /dev/null`); otherwise `codex exec` waits on an open stdin before it starts.
-- Codex native spawns that name no model or effort use `[agents]` in `~/.codex/config.toml`: `gpt-6-luna` at high. Still set both on every spawn.
+- Codex native spawns that name no model or effort fall back to the `[agents]` defaults in `~/.codex/config.toml`, if you set any (a cheap model such as `gpt-6-luna` at high is a safe default). Still set both on every spawn.
 - Codex sandbox: `-s read-only` for research, `-s danger-full-access` when the worker needs network or writes outside the repo. Drop `--ephemeral` to keep the session for `codex exec resume <id>`.
 - Keep `wait` in the same shell call. If you must detach, start each worker with `setsid nohup`; otherwise the wrapper can die when the call returns.
 - Run at most 4 CLI workers at once by default, and check `free -h` first on memory-constrained machines.

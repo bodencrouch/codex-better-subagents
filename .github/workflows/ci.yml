@@ -22,9 +22,19 @@ jobs:
         run: python3 -c 'import tomllib,glob; [tomllib.load(open(f,"rb")) for f in glob.glob("agents/codex/*.toml")+["codex/worker.config.toml"]]'
       - name: Check agent frontmatter
         run: |
-          for f in agents/claude/*.md; do
-            head -1 "$f" | grep -qx -- '---' || { echo "missing frontmatter: $f"; exit 1; }
-            grep -q '^model: ' "$f" || { echo "missing model: $f"; exit 1; }
-          done
+          python3 - <<'PY'
+          import glob, sys, yaml
+          bad = 0
+          for f in sorted(glob.glob("agents/claude/*.md")):
+              parts = open(f).read().split("---", 2)
+              try:
+                  meta = yaml.safe_load(parts[1]) if len(parts) == 3 else None
+              except yaml.YAMLError as e:
+                  meta = None
+                  print(f"{f}: {e}")
+              if not isinstance(meta, dict) or not {"name", "description", "model"} <= meta.keys():
+                  print(f"bad frontmatter: {f}"); bad = 1
+          sys.exit(bad)
+          PY
       - name: Install into a scratch home
         run: HOME="$RUNNER_TEMP/home" ./install.sh

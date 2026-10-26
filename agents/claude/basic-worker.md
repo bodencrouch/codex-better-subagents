@@ -1,6 +1,6 @@
 ---
 name: basic-worker
-description: Basic-tier worker on GPT-6 Luna at high effort. Use proactively for lookups, read-and-report, grep or inventory audits, extraction, classification, formatting, renames, summaries, small known edits, and run-a-command-and-report jobs. Tier guide: ~/.agents/rules/subagent-model-routing.md.
+description: Basic-tier worker on GPT-6 Luna at high effort. Use proactively for lookups, read-and-report, grep or inventory audits, extraction, classification, formatting, renames, summaries, small known edits, and run-a-command-and-report jobs. See ~/.agents/rules/subagent-model-routing.md for the tiers.
 model: gpt-6-luna
 effort: high
 ---
