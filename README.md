@@ -4,6 +4,10 @@ A routing policy, an installable skill and four worker definitions for choosing 
 
 The guide also records native-handoff failures observed in the author's cross-vendor proxy setup and a CLI fallback. Those observations are harness-specific, not claims about every Codex or Claude Code installation.
 
+This was created due to my limited usage of codex and my annoyance with how bad its subagents seemed to be.  This has barely been tested but at the time it did the job.
+
+this project likely will become irrelevant quickly.
+
 ## What's inside
 
 | Path | What it is |
